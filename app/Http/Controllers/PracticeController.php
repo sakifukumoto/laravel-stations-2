@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Practice;
+
 class PracticeController extends controller {
   public function sample() {
     return view('practice');
@@ -12,6 +14,10 @@ class PracticeController extends controller {
   public function sample3() {
     $testParam = 'test';
     return view('practice3', ['test' => $testParam]);
+  }
+  public function getPractice() {
+    $practice = Practice::all();
+    return response()->json($practice);
   }
 }
 ?>
